@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+
+  squid-proxy:
+    image: sameersbn/squid:3.5.27-2
+    container_name: squid
+    restart: unless-stopped
+    volumes:
+      - ./squid.conf:/etc/squid/squid.conf
+      - ./passwords:/etc/squid/passwords
+    ports:
+      - "33396:3128"
